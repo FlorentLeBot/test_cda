@@ -3,8 +3,6 @@
 let btn = document.querySelector(".btn");
 let song = document.querySelector(".text-song");
 
-// Quand on clique sur le bouton ...
-// (utilisation d'une fonctions fléchée)
 
 btn.addEventListener("click", () => {
   // ... on récupére la valeur de l'input ...
@@ -32,7 +30,16 @@ btn.addEventListener("click", () => {
 
     song.innerText = `${valueUser} ${songPart1} ${valueUser} ${songPart2} \n${songPart3} ${valueUser - 1
       } ${songPart4}`;
-
+    
+    let fa = document.createElement('i');
+    fa.classList.add("fa-solid");
+    fa.classList.add("fa-music");
+    new_elt = fa
+    new_elt.style.color = 'white';
+   
+    document.getElementById('div_parent').appendChild(new_elt);
+   
+    // class="fa-solid fa-music-note">
     // sinon si la valeur est égal à 0 ...
   } else if (valueUser == 0) {
 
@@ -62,18 +69,39 @@ btn.addEventListener("click", () => {
       ""
     )} \n${songPart3} ${String(valueUser).replace("1", "Plus de ")} ${songPart4}`;
 
-  // sinon si la valeur est égale à 2 ...
-  
+    // sinon si la valeur est égale à 2 ...
+
   } else if (valueUser == 2) {
     song.innerText = `${valueUser} ${songPart1} ${valueUser} ${songPart2} \n${songPart3} ${valueUser - 1
       } ${songPart4.replace(
         "s",
         "")}`;
 
-   
-  // sinon on affiche ...
-  
+    // sinon on affiche ...
+
   } else {
     song.innerText = "Vous devez choisir une valeur entre 0 et 99";
   }
 });
+
+const container = document.querySelector(".box");
+const form = document.querySelector(".form")
+const label = document.querySelector("label")
+const mainColor = "#157573";
+const secondaryColor = "#213745";
+const textColor = "rgba(245, 195, 110, 1)"
+
+container.addEventListener("mouseenter", () => {
+  container.style.background = mainColor;
+  form.style.background = mainColor;
+  label.style.background = mainColor;
+  label.style.color = textColor;
+});
+
+container.addEventListener("mouseout", () => {
+  container.style.background = secondaryColor;
+  form.style.background = secondaryColor;
+  label.style.background = secondaryColor;
+});
+
+

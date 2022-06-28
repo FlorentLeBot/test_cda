@@ -1,17 +1,27 @@
 <!DOCTYPE html>
 <html lang="fr">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test CDA</title>
-    <!-- <link rel="stylesheet" href="style.css" /> -->
-  </head>
-  <body>
-    <input min="0" type="number" placeholder="Entrez une valeur ici" id="in" />
-    <button class="btn" type="button">Récupérer la valeur</button>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Test CDA</title>
+  <link rel="stylesheet" href="style.css">
+  <!-- font-awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css">
+</head>
+
+  <main class="box container" id="div_parent">
+
+    <div class="form">
+      <label for="in">Entrer une valeur</label>
+      <input min="0" type="text" id="in" />
+      <button class="btn" type="button">Chanter</button>
+    </div>
     <p class="text-song"></p>
 
-    <script src="script.js"></script>
-  </body>
+  </main>
+  <script src="script.js"></script>
+</body>
+
 </html>
