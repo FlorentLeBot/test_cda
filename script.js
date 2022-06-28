@@ -5,7 +5,7 @@ let song = document.querySelector(".text-song");
 
 
 btn.addEventListener("click", () => {
-  // ... on récupére la valeur de l'input ...
+  // ... je récupére la valeur de l'input ...
 
   let value = document.getElementById("in").value;
 
@@ -22,7 +22,7 @@ btn.addEventListener("click", () => {
   let songPart5 = "Vas au supermarché pour en acheter, 99 bolées de cidre sur le mur."
 
   // création d'un élément i 
-  
+
   if (typeof fa === 'undefined') {
     let fa = document.createElement('i');
     fa.classList.add("fa-solid");
@@ -84,8 +84,11 @@ btn.addEventListener("click", () => {
 
   } else {
 
+    // je supprime l'élément i
+
     let elem = document.getElementById('fa');
     let del = elem.parentNode.removeChild(elem);
+
     song.innerText = "Vous devez choisir une valeur entre 0 et 99";
   }
 });
@@ -98,6 +101,8 @@ const mainColor = "#157573";
 const secondaryColor = "#213745";
 const textColor = "rgba(245, 195, 110, 1)"
 
+// applique du style au survole
+
 container.addEventListener("mouseenter", () => {
   container.style.background = mainColor;
   form.style.background = mainColor;
@@ -105,11 +110,15 @@ container.addEventListener("mouseenter", () => {
   label.style.color = textColor;
 });
 
+// et en dehors
+
 container.addEventListener("mouseout", () => {
   container.style.background = secondaryColor;
   form.style.background = secondaryColor;
   label.style.background = secondaryColor;
 });
+
+// je mets des bordures après 2 secondes
 
 setTimeout(() => {
   container.style.borderRadius = "300px";
