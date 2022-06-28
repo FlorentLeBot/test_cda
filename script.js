@@ -21,7 +21,20 @@ btn.addEventListener("click", () => {
   let songPart4 = " bolées de cidre sur le mur.";
   let songPart5 = "Vas au supermarché pour en acheter, 99 bolées de cidre sur le mur."
 
+  // création d'un élément i 
+  
+  if (typeof fa === 'undefined') {
+    let fa = document.createElement('i');
+    fa.classList.add("fa-solid");
+    fa.classList.add("fa-music");
+    fa.setAttribute('id', 'fa')
+    new_elt = fa
+    new_elt.style.color = 'white';
+    document.getElementById('div_parent').appendChild(new_elt);
+  }
+
   // ... et si la valeur est supérieur à 2 et inférieur ou égal à 99 ...
+
 
   if (valueUser > 2 && valueUser <= 99) {
 
@@ -30,17 +43,7 @@ btn.addEventListener("click", () => {
 
     song.innerText = `${valueUser} ${songPart1} ${valueUser} ${songPart2} \n${songPart3} ${valueUser - 1
       } ${songPart4}`;
-    
-    let fa = document.createElement('i');
-    fa.classList.add("fa-solid");
-    fa.classList.add("fa-music");
-    new_elt = fa
-    new_elt.style.color = 'white';
-   
-    document.getElementById('div_parent').appendChild(new_elt);
-   
-    // class="fa-solid fa-music-note">
-    // sinon si la valeur est égal à 0 ...
+
   } else if (valueUser == 0) {
 
     //... on affiche ...
@@ -80,9 +83,13 @@ btn.addEventListener("click", () => {
     // sinon on affiche ...
 
   } else {
+
+    let elem = document.getElementById('fa');
+    let del = elem.parentNode.removeChild(elem);
     song.innerText = "Vous devez choisir une valeur entre 0 et 99";
   }
 });
+
 
 const container = document.querySelector(".box");
 const form = document.querySelector(".form")
@@ -104,4 +111,6 @@ container.addEventListener("mouseout", () => {
   label.style.background = secondaryColor;
 });
 
-
+setTimeout(() => {
+  container.style.borderRadius = "300px";
+}, 2000);
