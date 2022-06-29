@@ -3,8 +3,10 @@
 let btn = document.querySelector(".btn");
 let song = document.querySelector(".text-song");
 
+// quand je clique sur le bouton ...
 
 btn.addEventListener("click", () => {
+  
   // ... je récupére la valeur de l'input ...
 
   let value = document.getElementById("in").value;
@@ -21,6 +23,11 @@ btn.addEventListener("click", () => {
   let songPart4 = " bolées de cidre sur le mur.";
   let songPart5 = "Vas au supermarché pour en acheter, 99 bolées de cidre sur le mur."
 
+  // je rajoute du padding au paragraphe
+  
+  let textSong = document.querySelector(".text-song");
+  textSong.style.padding = "2rem";
+
   // création d'un élément i 
 
   if (typeof fa === 'undefined') {
@@ -28,13 +35,11 @@ btn.addEventListener("click", () => {
     fa.classList.add("fa-solid");
     fa.classList.add("fa-music");
     fa.setAttribute('id', 'fa')
-    new_elt = fa
-    new_elt.style.color = 'white';
-    document.getElementById('div_parent').appendChild(new_elt);
+    fa.style.color = 'white';
+    document.querySelector('.box').appendChild(fa);
   }
 
   // ... et si la valeur est supérieur à 2 et inférieur ou égal à 99 ...
-
 
   if (valueUser > 2 && valueUser <= 99) {
 
@@ -49,10 +54,15 @@ btn.addEventListener("click", () => {
     //... on affiche ...
     // (utilisation de la concaténation)
 
-    valueUser = "Plus de ";
+    valueUser = "plus de ";
     song.innerText =
-      valueUser +
+      // juste le P...
+      valueUser[0].toUpperCase() +
+      // et ...lus de
+      valueUser.slice(1) +
       songPart1 +
+      valueUser +
+      songPart2 +
       "\n" +
       songPart5;
 
@@ -95,31 +105,20 @@ btn.addEventListener("click", () => {
 
 
 const container = document.querySelector(".box");
-const form = document.querySelector(".form")
 const label = document.querySelector("label")
-const mainColor = "#157573";
-const secondaryColor = "#213745";
+const mainColor = "rgba(33, 55, 69, 1)";
 const textColor = "rgba(245, 195, 110, 1)"
 
 // applique du style au survole
 
 container.addEventListener("mouseenter", () => {
   container.style.background = mainColor;
-  form.style.background = mainColor;
-  label.style.background = mainColor;
   label.style.color = textColor;
-});
-
-// et en dehors
-
-container.addEventListener("mouseout", () => {
-  container.style.background = secondaryColor;
-  form.style.background = secondaryColor;
-  label.style.background = secondaryColor;
 });
 
 // je mets des bordures après 2 secondes
 
 setTimeout(() => {
-  container.style.borderRadius = "300px";
+  container.style.borderRadius = "100px";
 }, 2000);
+

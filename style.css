@@ -1,16 +1,68 @@
+/* minii reset css */
+
 * {
-    font-size: 20px;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
 }
+
+body {
+    font-size: 20px;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* variable css */
 
 :root {
     --color: rgba(245, 195, 110, 1);
     --white: #fff;
 }
 
+/* le header */
+
+header h1 {
+    position: relative;
+    left: 25%;
+    padding: 1rem;
+    font-size: 2rem;
+    text-transform: uppercase;
+    font-weight: 100;
+    color: rgba(33, 55, 69, 1);
+}
+
+/* création d'un pseudo-élément qui sera le premier enfant de l'élément span */
+
+header span::before {
+    content: "concepteur";
+    font-size: 2rem;
+    animation: anim 8s infinite;
+}
+
+/* animation css */
+
+@keyframes anim {
+    0% {
+        content: "concepteur";
+    }
+
+    33% {
+        font-size: 2rem;
+        content: "développeur";
+    }
+
+    66% {
+        font-size: 2rem;
+        content: "d'applications";
+    }
+}
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
+    transition: 0.30s ease-in-out;
 }
+
+/* le main */
 
 input {
     width: 150px;
@@ -26,6 +78,7 @@ input {
     background-color: var(--color);
     color: black;
     padding: 0.5rem;
+    cursor: pointer;
 }
 
 .btn:hover {
@@ -35,12 +88,6 @@ input {
 .box {
     border: 6px solid var(--color);
     padding: 10px;
-}
-
-.box,
-.form,
-label {
-    transition: 0.25s ease-in-out;
 }
 
 .form {
